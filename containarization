@@ -1,0 +1,10 @@
+Advantages of Docker:
+
+1. Docker ensures the same environment in all the levels of development in lower levels and production
+2. Each service will run in it's own containers with it's own dependencies
+3. Docker supports to run any system without any complex setup
+4. Docker is light weight and helps to fast startup
+
+Real-World Use Case:
+
+Usually in Developement team , people will use multiple machines like windows,mac,linux etc., to make consistent project setup all over the machines is complex and docker will helps us in that situation. And also if any new developer wants to setup MERN project instead of installing everything individually and setting up.. We can directly give few instructions to setup and execute docker-compose.yaml file and everything will be ready

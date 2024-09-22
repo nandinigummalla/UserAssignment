@@ -1,0 +1,77 @@
+Basic Git Commands: Explain the steps and Git commands to initialize a repository, make a commit, and push the code to GitHub.
+
+Navigate to the project repository and initialize the git with the following command
+
+git init
+
+Add the files which we need to add in the repository with the following command
+
+git add . (for all the files)
+
+git add filename (for specific file)
+
+after staging(adding the files) then commit the changes as
+
+git commit -m "commit message"
+
+connect remote repository as
+
+git remote add origin url
+
+Push the changes to remote repo
+
+git push origin branchname
+
+Raise a PR to master branch to push all the changes to master/main
+
+#Branching Strategy: Describe a common branching strategy (such as GitFlow or feature branching) used in software development teams and how you would implement it for a new feature.
+
+create a new branch using
+
+git branch branch-name
+
+Then checkout to the created branch
+
+git checkout new_branch
+
+After working on the localbranch add the change and push the changes to branch and raise a pr
+
+While merging will see the conflicts
+
+git merge feature/featurebranch
+
+Resolve the conflicts and push the changes
+
+Create a yml file and add the below code to setup automated testing and deployment for the project
+
+name: CI/CD Pipeline
+
+on:
+push:
+branches: - main
+pull_request:
+branches: - main
+
+jobs:
+build:
+runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Deploy (if applicable)
+        run: |
+          echo "Deploying application..."
+          # deployment script here
